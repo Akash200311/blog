@@ -1,0 +1,46 @@
+#T 
+{float: right;
+ background-color: black;
+ border-style:solid ;
+ border-radius: 10px;
+ height: 120px;
+width:12vw;
+position:absolute; 
+left: 85vw;
+text-align: center;
+padding: 5px;
+display: block;
+color:white;
+line-height: 30px;
+position: fixed;
+top: 65px;
+
+}
+
+#one,#two,#three
+{
+    font-size: 20px;
+    cursor: pointer;
+
+}
+#one:hover
+
+{
+    font-size: 22px;
+}
+#two:hover
+{ font-size: 22px;
+
+}
+
+#three:hover
+{
+    font-size: 22px;
+}
+
+#search
+{
+    width: 150px;
+    height: 25px;
+
+}

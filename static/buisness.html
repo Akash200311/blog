@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head><link rel="stylesheet" href="nav.css">
+<link rel="stylesheet" href="style.css">
+<body>
+
+    
+        
+        
+    <div class="main">
+        <div class="top">
+            <nav class="navbar">
+                <div class="navbar-container container">
+                    <input type="checkbox" name="" id="">
+                    <div class="hamburger-lines">
+                        <span class="line line1"></span>
+                        <span class="line line2"></span>
+                        <span class="line line3"></span>
+                    </div>
+                    <ul class="menu-items">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">News</a></li>
+                        <li><a href="#">Blogs</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="search.html"><input type="text" placeholder="Search" class="search"></a></li>
+                      <a href="#"><img src="A.png" alt="error" class="icon"></a>
+                    </ul>
+                    <h1 class="logo">Navbar</h1>
+                </div>
+          
+            </nav>
+        </div>
+
+            <div class="Middle">
+                <div class="categories">
+                    <h1>Category</h1>
+                    <ul class="ui" name="Home"><a href="new.html" class="yy"> Home</a></ul>
+                    <ul class="ui" name="entertainment"><a href="enter.html" class="yy">Entertainment</a></ul>
+                    <ul class="ui" name="sports"><a href="sports.html" class="yy">Sports</a></ul>
+                    <ul class="ui" name="business"><a href="buisness.html" class="yy">Buisness</a></ul>
+                    <ul class="ui" name="technology"><a href="tech.html" class="yy">Technology</a></ul>
+                    <ul class="ui" name="gaming"><a href="game.html" class="yy">Gaming</a></ul>
+                    <ul class="ui" name="poliyical"><a href="poli.html" class="yy">Political</a></ul>                
+
+                   
+                
+                </div>
+
+                <div class="mid" id="mid">
+            
+         
+
+                </div>
+                </div>
+
+           
+ 
+   <script>
+    
+
+var w = window.screen.width;
+var number=w/400
+var t=Math.floor( number );
+var u=1;
+var count=0;
+
+
+
+async function fetchText() {
+    var r; 
+    console.log("yes");
+    let response = await fetch('https://newsapi.org/v2/top-headlines?country=in&category=business&apiKey=5d7ee5ac860d477cbfe4048350951a31');
+     let response1 = await fetch('https://newsapi.org/v2/top-headlines?country=us&category=buisness&apiKey=5d7ee5ac860d477cbfe4048350951a31');
+    let data = await response.json();
+    let data1 = await response1.json();
+    let x=data.articles;
+    let y=data1.articles;
+    console.log(data)
+    console.log(data1)
+    r =x.concat(y)
+    console.log(r)
+
+var row=document.createElement("div")
+row.className="row"
+row.id=`g${u}`;
+document.getElementById(`mid`).appendChild(row)
+    for(i=0;i<50;i++)
+{if(r[i].urlToImage!=null)
+    {
+
+var div = document.createElement("div")
+var div1 = document.createElement("div")
+var div2 = document.createElement("div")
+var div3 = document.createElement("div")
+var div4= document.createElement("div")
+var img= document.createElement("img")
+var img1= document.createElement("img")
+var link=document.createElement("a")
+
+div.className="column";
+div1.className="s";
+div2.className="Y"
+div2.id=`img${i}`;
+div3.className="content";
+div3.id=`con${i}`
+div4.className="button";
+div4.id=`b${i}`;
+img1.className='read-more';
+img1.id=`y${i}`
+
+div.id=i;
+div1.id=i+51
+img.id=`i${i}`
+img.alt="error"
+img.className="news-img1"
+
+link.className="link"
+link.id=`l${i}`
+link.href="www.google.com"
+
+document.getElementById(`g${u}`).appendChild(div)
+document.getElementById(`${i}`).appendChild(div1);
+document.getElementById(`${i+51}`).appendChild(div2);
+document.getElementById(`${i+51}`).appendChild(div3);
+document.getElementById(`${i+51}`).appendChild(div4);
+document.getElementById(`img${i}`).appendChild(img);
+document.getElementById(`b${i}`).appendChild(link);
+document.getElementById(`l${i}`).appendChild(img1);
+document.getElementById(`y${i}`).src="read-more.png";
+document.getElementById(`i${i}`).src=`${r[i].urlToImage}`
+document.getElementById(`con${i}`).innerHTML=`<p class="text"> ${r[i].title}</p>`
+document.getElementById(`l${i}`).href=`${r[i].url}`
+}
+}
+}
+fetchText();
+
+
+
+
+
+
+function category()
+{    count=count+1;
+    fetchText();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   </script>
+     
+
+</body>
+</html>

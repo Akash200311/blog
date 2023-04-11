@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #T
+    {
+        background-color: aqua;
+        height: 150px;
+        width: 300px;
+
+    }
+ul
+{
+    margin-top: 20px;
+}
+</style>
+<body>
+    <div>
+        <input type="text" class="A" id="B" >
+        <br>
+        <div id="T">
+            <ul id="one"></ul>
+            <ul id="two"></ul>
+            <ul id="three"></ul>
+        </div>
+    </div>
+
+<script>
+  var l=document.getElementById("B").value;
+    function val()
+    { var k=document.getElementById("B").value
+    console.log(k)
+    if(l!=k)
+    {
+        function retrieveQueries() {
+    var r=document.getElementById("B").value
+    fetch(
+        `https://corsanywhere.herokuapp.com/https://google.com/complete/search?client=chrome&q=${r}`
+    )
+        .then((res) => res.json()) //failed when just printing res as the default output, or with res.text()
+        .then((data) => {
+
+            document.getElementById("one").innerHTML=`${data[1][0]}`
+        document.getElementById("two").innerHTML=`${data[1][1]}`
+        document.getElementById("three").innerHTML=`${data[1][2]}`
+            console.log(data);
+        })
+        .catch((err) => {
+            console.error(err);
+        });
+
+    
+
+}retrieveQueries()
+
+    }
+
+    if(k=="")
+    {   document.getElementById("one").innerHTML=``
+        document.getElementById("two").innerHTML=``
+        document.getElementById("three").innerHTML=``
+
+    }
+    l=k;
+
+
+}
+    setInterval(val,10);
+
+
+</script>
+
+    
+</body>
+</html>
