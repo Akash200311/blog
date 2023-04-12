@@ -1,5 +1,6 @@
 asgiref==3.6.0
 pysqlite3==0.4.3
+db-sqlite3 0.0.1
 Django==4.2
 django-autoslug==1.9.9
 django-ckeditor==6.5.1
